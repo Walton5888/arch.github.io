@@ -79,7 +79,7 @@ useradd -m -g users -G wheel -s /bin/bash zane
 passwd GraceHopper1906
 
 ## Step 14: Giving Users Sudo Permissions
-# Switches the root user.
+# Switches to the root user.
 su
 
 # Make changes to the sudoers file.
