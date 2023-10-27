@@ -28,6 +28,7 @@ timedatectl set-ntp true
 use cfdisk or fdisk to partition the disk to desired settings.
 
 ## Step 5: Mounting and Setting the Format for Partitions
+
 #These commands both format the partition and mount it to /mnt. 
 mkfs.ext4 /dev/sda1
 mount/ /dev/sda1/mnt 
