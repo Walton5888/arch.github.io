@@ -21,16 +21,16 @@
 2. Boot from the ISO and select 'Boot Arch Linux (x86_64)'.
 
 ## Step 3: Update System Clock and Update Packages
-
-timedatectl set-ntp true #Syncs the system’s clock with NTP servers. 
+#Syncs the system’s clock with NTP servers. 
+timedatectl set-ntp true 
 
 ## Step 4: Partitioning your disk
 use cfdisk or fdisk to partition the disk to desired settings.
 
 ## Step 5: Mounting and Setting the Format for Partitions
+#These commands both format the partition and mount it to /mnt. 
 mkfs.ext4 /dev/sda1
 mount/ /dev/sda1/mnt 
-#These commands both format the partition and mount it to /mnt. 
 
 ## Step 6: Install the Arch System
 #Install’s arch’s base system.
@@ -63,6 +63,7 @@ echo 'your-hostname' > /etc/hostname
 ## Step 12: Set Network Configuration:
 #for wired connections
 systemctl enable dhcpd
+
 #Enables the network manager
 systemctl enable NetworkManager 
 
