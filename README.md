@@ -1,7 +1,6 @@
-# arch.github.io
-# Installing Arch Linux on VMware Workstation for Mac
+## Installing Arch Linux on VMware Workstation for Mac
 
-These instructions will guide you through the process of installing the Arch distribution of Linux on VMware Workstation for a Mac, and then installing the Gnome desktop envioirnment. 
+-These instructions will guide you through the process of installing the Arch distribution of Linux on VMware Workstation for a Mac, and then installing the Gnome desktop envioirnment. 
 
 ## Requirements
 
@@ -79,14 +78,12 @@ Type the following commands into your shell:
 useradd -m -g users -G wheel -s /bin/bash codi
 # Set the password for 'codi'
 passwd GraceHopper1906
-
-
 # Creates user profile 'zane'
 useradd -m -g users -G wheel -s /bin/bash zane
 # Set login credentials for ‘zane'
 passwd GraceHopper1906
 
-##Step 14: Giving Users Sudo Permissions
+## Step 14: Giving Users Sudo Permissions
 Type the following commands into your shell.
 #Switches the root user.
 su
@@ -107,16 +104,29 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Step 16: Install a Desktop Environment (GNOME)
+Type the following commands into your shell:
+# Install the GNOME de
 pacman -S xorg-server xorg-xinit gnome
+
+# Enables the display manager. 
 systemctl enable gdm
 
 ## Step 17: Logout and Restart the System
+Type the following commands into your shell:
+#Exits the envioirnment
 exit
+#Un-mounts partitions
 umount -R /mnt
+#Restarts the system
 reboot
 
 ## Step 18: Completion
 #Your task is complete. 
+
+
+
+
+
 
 
 
