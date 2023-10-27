@@ -54,17 +54,15 @@ echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 
-
 ##Step 11 Set Hostname 
 #Sets the user’s preferred name as the host. 
 echo 'your-hostname' > /etc/hostname
 
-
 ## Step 12: Set Network Configuration:
-#for wired connections
+#for wired connections:
 systemctl enable dhcpd
 
-#Enables the network manager
+#Enables the network manager:
 systemctl enable NetworkManager 
 
 ## Step 13: Create System Users
