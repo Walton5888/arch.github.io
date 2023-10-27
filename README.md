@@ -22,40 +22,33 @@
 
 ## Step 3: Update System Clock and Update Packages
 
-Execute the following command in your shell:
 timedatectl set-ntp true #Syncs the system’s clock with NTP servers. 
 
 ## Step 4: Partitioning your disk
 use cfdisk or fdisk to partition the disk to desired settings.
 
 ## Step 5: Mounting and Setting the Format for Partitions
-Execute the following commands in your shell:
 mkfs.ext4 /dev/sda1
 mount/ /dev/sda1/mnt 
 #These commands both format the partition and mount it to /mnt. 
 
 ## Step 6: Install the Arch System
-Type the following command into your shell:
-pacstrap /mnt base linux linux-firmware
 #Install’s arch’s base system.
+pacstrap /mnt base linux linux-firmware
 
 ## Step 7: Create an fstab file.
-Type the following command into your terminal:
 # An fstab file is created to manage the mounts of the filesystem. 
 genfstab -U /mnt >> /mnt/etc/fstab
 
 ## Step 8: Boot into the new system. 
-Type the following command into your shell:
 #Boots into the Arch system.
 arch-chroot /mnt
 
 ## Step 9: Provide Time Zone
-Type the following command in your shell;
 #Replace the region and city sections with the time zone you reside in.
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 
 ## Step 10: Set your preferred locale information
-Type the following commands into your shell:
 #Sets the character encoding, collation, and language preferences
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
 locale-gen
@@ -63,52 +56,52 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 
 
 ##Step 11 Set Hostname 
-Type the following command into your shell: 
 #Sets the user’s preferred name as the host. 
 echo 'your-hostname' > /etc/hostname
 
 
 ## Step 12: Set Network Configuration:
-Type the following commands into your shell: 
 #for wired connections
 systemctl enable dhcpd
 #Enables the network manager
 systemctl enable NetworkManager 
 
 ## Step 13: Create System Users
-Type the following commands into your shell:
 # Create user 'codi'
 useradd -m -g users -G wheel -s /bin/bash codi
+
 # Set the password for 'codi'
 passwd GraceHopper1906
 
 # Creates user profile 'zane'
 useradd -m -g users -G wheel -s /bin/bash zane
+
 # Set login credentials for ‘zane'
 passwd GraceHopper1906
 
 ## Step 14: Giving Users Sudo Permissions
-Type the following commands into your shell.
 #Switches the root user.
 su
+
 #Make changes to the sudoers file.
 visudo
+
 #Grants sudo permissions to users.
 %wheel ALL=(ALL) ALL
+
 #Grants sudo permissions to zane and codi users.
 zane ALL=(ALL) ALL
 codi ALL=(ALL) ALL
+
 #Save and exit the file. 
 
 ## Step 15: Install a Bootloader
-Type the following commands into your shell:
 # Installs the GRUB bootloader
 pacman -S grub
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Step 16: Install a Desktop Environment (GNOME)
-Type the following commands into your shell:
 # Install the GNOME de
 pacman -S xorg-server xorg-xinit gnome
 
@@ -116,16 +109,17 @@ pacman -S xorg-server xorg-xinit gnome
 systemctl enable gdm
 
 ## Step 17: Logout and Restart the System
-Type the following commands into your shell:
 #Exits the envioirnment
 exit
+
 #Un-mounts partitions
 umount -R /mnt
+
 #Restarts the system
 reboot
 
 ## Step 18: Completion
-#Your task is complete. 
+Your task is complete. 
 
 
 
