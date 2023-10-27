@@ -1,6 +1,6 @@
 ## Installing Arch Linux on VMware Workstation for Mac
 
--These instructions will guide you through the process of installing the Arch distribution of Linux on VMware Workstation for a Mac, and then installing the Gnome desktop envioirnment. 
+-These instructions will guide you through the process of installing the Arch distribution of Linux on VMware Workstation for a Mac, and then installing the Gnome desktop enviornment. 
 
 ## Requirements
 
@@ -41,29 +41,32 @@ pacstrap /mnt base linux linux-firmware
 
 ## Step 7: Create an fstab file.
 Type the following command into your terminal:
-genfstab -U /mnt >> /mnt/etc/fstab
 # An fstab file is created to manage the mounts of the filesystem. 
+genfstab -U /mnt >> /mnt/etc/fstab
 
 ## Step 8: Boot into the new system. 
 Type the following command into your shell:
-arch-chroot /mnt
 #Boots into the Arch system.
+arch-chroot /mnt
 
 ## Step 9: Provide Time Zone
+Type the following command in your shell;
+#Replace the region and city sections with the time zone you reside in.
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-Replace the region and city sections with the time zone you reside in.
 
 ## Step 10: Set your preferred locale information
 Type the following commands into your shell:
+#Sets the character encoding, collation, and language preferences
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
-#Sets the character encoding, collation, and language preferences
+
 
 ##Step 11 Set Hostname 
 Type the following command into your shell: 
-echo 'your-hostname' > /etc/hostname
 #Sets the user’s preferred name as the host. 
+echo 'your-hostname' > /etc/hostname
+
 
 ## Step 12: Set Network Configuration:
 Type the following commands into your shell: 
@@ -78,6 +81,7 @@ Type the following commands into your shell:
 useradd -m -g users -G wheel -s /bin/bash codi
 # Set the password for 'codi'
 passwd GraceHopper1906
+
 # Creates user profile 'zane'
 useradd -m -g users -G wheel -s /bin/bash zane
 # Set login credentials for ‘zane'
@@ -122,11 +126,6 @@ reboot
 
 ## Step 18: Completion
 #Your task is complete. 
-
-
-
-
-
 
 
 
